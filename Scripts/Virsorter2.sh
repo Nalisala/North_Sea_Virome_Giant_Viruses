@@ -1,4 +1,4 @@
-`#!/bin/bash  
+#!/bin/bash  
 #PBS -N virsorter_trim2Mega_nsgv                                 
 #PBS -l nodes=4:ppn=20                                            
 #PBS -l walltime=30:00:00                                            
