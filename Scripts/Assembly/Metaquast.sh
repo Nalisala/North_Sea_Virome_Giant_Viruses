@@ -6,7 +6,9 @@
 #SBATCH --mem-per-cpu=8000  # MB RAM per CPU core (default 4 GB/core)
 #SBATCH --error=job.%J.err
 #SBATCH --output=job.%J.out
+
 source ~/.bashrc.conda3
+module load QUAST/5.0.2-foss-2020a-Python-3.8.2
 conda activate metaquast
 
 cd ~/Projects/NSV_1/working/metaquast/prinseq++/megahit/metaquast
