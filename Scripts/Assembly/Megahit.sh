@@ -25,3 +25,23 @@ for sample in `cat ../../../data/sample_list`
 do
 mv ${sample}/final.contigs.fa ${sample}/${sample}_megahit.fa
 done
+
+#or
+
+#single Pair End megahit assembly
+
+megahit -1 15_R1_paired.fastq.gz -2 15_R2_paired.fastq.gz -o /data/gent/vo/001/gvo00125/vsc45617/5.assembly/ns_goes_viral/megahit
+
+# submitting to HPC script for 4 Pair End fasta files
+# create non existing directory for output
+
+   #!/bin/bash 
+    #PBS -N megahit                                
+    #PBS -l nodes=4:ppn=16                                   
+    #PBS -l walltime=10:00:00                             
+    #PBS -l vmem=50gb                                      
+    module load MEGAHIT/1.2.9-GCCcore-10.2.0-Python-2.7.18    
+    cd ./4.trim/ns_goes_viral megahit -1 15_R1_paired.fastq.gz,18_R1_paired.fastq.gz,20_R1_paired.fastq.gz,24_R1_paired.fastq.gz -2 15_R2_paired.fastq.gz,18_R2_paired.fastq.gz,20_R2_paired.fastq.gz,24_R2_paired.fastq.gz -o ./vsc45617/5.assembly/ns_goes_viral/megahit
+
+
+
